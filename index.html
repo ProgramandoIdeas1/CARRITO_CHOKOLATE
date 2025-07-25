@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda Sencilla - Manjar de Oro Clon</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Manjar de Oro - Tu Tienda Sencilla</h1>
+    </header>
+
+    <main>
+        <section class="productos">
+            <h2>Nuestros Productos</h2>
+            <div id="lista-productos">
+                <div class="producto-item">
+                    <img src="https://via.placeholder.com/150" alt="Producto 1">
+                    <h3>Producto Delicioso 1</h3>
+                    <p>Precio: Bs <span class="precio">15.00</span></p>
+                    <button class="agregar-carrito" data-nombre="Producto Delicioso 1" data-precio="15.00">Añadir al Carrito</button>
+                </div>
+
+                <div class="producto-item">
+                    <img src="https://via.placeholder.com/150" alt="Producto 2">
+                    <h3>Producto Sabroso 2</h3>
+                    <p>Precio: Bs <span class="precio">25.50</span></p>
+                    <button class="agregar-carrito" data-nombre="Producto Sabroso 2" data-precio="25.50">Añadir al Carrito</button>
+                </div>
+
+                <div class="producto-item">
+                    <img src="https://via.placeholder.com/150" alt="Producto 3">
+                    <h3>Producto Exquisito 3</h3>
+                    <p>Precio: Bs <span class="precio">10.00</span></p>
+                    <button class="agregar-carrito" data-nombre="Producto Exquisito 3" data-precio="10.00">Añadir al Carrito</button>
+                </div>
+
+                </div>
+        </section>
+
+        <aside class="carrito-resumen">
+            <h2>Tu Carrito</h2>
+            <div id="items-carrito">
+                <p>Tu carrito está vacío.</p>
+            </div>
+            <p class="total">Total: Bs<span id="total-precio">0.00</span></p>
+            <button id="enviar-whatsapp">Enviar Pedido por WhatsApp</button>
+            <button id="limpiar-carrito">Limpiar Carrito</button>
+        </aside>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Manjar de Oro Sencillo. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

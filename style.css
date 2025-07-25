@@ -1,0 +1,317 @@
+/* Generales y Reseteo Básico */
+:root {
+    --primary-color: #6A3805; /* Marrón Chocolate Oscuro */
+    --secondary-color: #A0522D; /* Siena - Marrón Medio */
+    --accent-color: #FFD700; /* Dorado - Para detalles */
+    --text-color: #333; /* Gris oscuro para texto */
+    --light-bg: #F8F4E3; /* Crema muy claro */
+    --white: #ffffff;
+    --font-heading: 'Georgia', serif; /* Fuente elegante para títulos */
+    --font-body: 'Arial', sans-serif; /* Fuente legible para el cuerpo */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que el footer se quede abajo */
+}
+
+/* Encabezado */
+header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1.5rem 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+/* Contenido Principal (Flexbox para diseño) */
+main {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+    gap: 2rem; /* Espacio entre las secciones */
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 2rem auto; /* Centrar el contenido principal */
+    flex-grow: 1; /* Permite que el main ocupe el espacio restante */
+}
+
+/* Sección de Productos */
+.productos {
+    flex: 3; /* Ocupa 3 partes del espacio disponible */
+    min-width: 300px; /* Ancho mínimo para la sección */
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.productos h2 {
+    font-family: var(--font-heading);
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+#lista-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Columnas responsivas */
+    gap: 1.5rem;
+}
+
+.producto-item {
+    background-color: var(--light-bg);
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.producto-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.producto-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+}
+
+.producto-item h3 {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.producto-item p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.producto-item .precio {
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+/* Botones */
+button {
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+button:hover {
+    background-color: #e6c200; /* Un dorado un poco más oscuro */
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Carrito de Compras */
+.carrito-resumen {
+    flex: 1; /* Ocupa 1 parte del espacio disponible */
+    min-width: 280px; /* Ancho mínimo para el carrito */
+    background-color: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    align-self: flex-start; /* Mantiene el carrito arriba */
+    position: sticky; /* Sticky positioning si se desplaza */
+    top: 20px; /* Distancia desde la parte superior cuando se hace sticky */
+}
+
+.carrito-resumen h2 {
+    font-family: var(--font-heading);
+    color: var(--secondary-color);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+#items-carrito {
+    border-top: 1px solid #eee;
+    padding-top: 1rem;
+    margin-bottom: 1.5rem;
+    max-height: 300px; /* Para hacer scroll si hay muchos items */
+    overflow-y: auto; /* Habilita el scroll vertical */
+}
+
+.carrito-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px dashed #eee;
+}
+
+.carrito-item:last-child {
+    border-bottom: none; /* No hay borde inferior para el último item */
+}
+
+.carrito-item-info {
+    flex-grow: 1;
+}
+
+.carrito-item-info span {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.carrito-item-info .item-nombre {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.carrito-item-info .item-cantidad-precio {
+    color: var(--text-color);
+    font-size: 0.85rem;
+}
+
+.eliminar-item {
+    background-color: #dc3545; /* Rojo para eliminar */
+    color: var(--white);
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    margin-left: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.eliminar-item:hover {
+    background-color: #c82333;
+}
+
+.total {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: right;
+    margin-top: 1.5rem;
+    color: var(--primary-color);
+    border-top: 2px solid var(--secondary-color);
+    padding-top: 1rem;
+}
+
+#enviar-whatsapp,
+#limpiar-carrito {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+}
+
+#enviar-whatsapp {
+    background-color: #25d366; /* Verde WhatsApp */
+    color: var(--white);
+}
+
+#enviar-whatsapp:hover {
+    background-color: #1DA851;
+}
+
+#limpiar-carrito {
+    background-color: #f0ad4e; /* Naranja para limpiar */
+    color: var(--white);
+}
+
+#limpiar-carrito:hover {
+    background-color: #ec971f;
+}
+
+/* Pie de Página */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: auto; /* Empuja el footer hacia abajo */
+}
+
+footer p {
+    font-size: 0.9rem;
+}
+
+/* Media Queries para Responsividad */
+@media (max-width: 768px) {
+    main {
+        flex-direction: column; /* Apila las secciones en pantallas pequeñas */
+        padding: 1rem;
+        gap: 1.5rem;
+    }
+
+    .productos, .carrito-resumen {
+        min-width: unset; /* Elimina el ancho mínimo para que se ajusten */
+        width: 100%; /* Ocupa todo el ancho disponible */
+    }
+
+    .carrito-resumen {
+        position: static; /* Desactiva el sticky en móviles */
+        top: unset;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .productos h2, .carrito-resumen h2 {
+        font-size: 1.8rem;
+    }
+
+    #lista-productos {
+        grid-template-columns: 1fr; /* Una columna en pantallas muy pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    button {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .total {
+        font-size: 1.3rem;
+    }
+
+    #enviar-whatsapp, #limpiar-carrito {
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}
